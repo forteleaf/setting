@@ -10,4 +10,18 @@ export LSCOLORS=ExFxBxDxCxegedabagacad
 alias ls='ls -GFh'
 ```
 
+# zsh
 
+## fedora
+
+### zsh 설치
+
+    $ sudo dnf install zsh
+
+### oh-my-zsh 설치
+
+설치와 기본 쉘에디터 설정
+
+    $ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+    $ sudo lchsh
