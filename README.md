@@ -25,3 +25,7 @@ alias ls='ls -GFh'
     $ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
     $ sudo lchsh
+
+### powerlevel9k 설치
+
+    $ git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
