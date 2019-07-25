@@ -24,7 +24,7 @@ alias ls='ls -GFh'
 
     $ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-    $ sudo lchsh
+    $ sudo lchsh -i $(whoami)
     
 리붓을 해야 적용이 된다.
 
