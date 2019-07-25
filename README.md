@@ -25,6 +25,8 @@ alias ls='ls -GFh'
     $ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
     $ sudo lchsh
+    
+리붓을 해야 적용이 된다.
 
 ### powerlevel9k 설치
 
