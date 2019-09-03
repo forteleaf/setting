@@ -34,6 +34,8 @@ Plugin 'posva/vim-vue'
 Plugin 'AutoComplPop'
 Plugin 'scrooloose/nerdtree' "tree
 
+Plugin 'morhetz/gruvbox' "Theme
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -47,3 +49,6 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " 디렉토리를 vim으로 여는 경우 NERD Tree 실행.
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+
+"ColorTheme
+colorscheme gruvbox
