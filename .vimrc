@@ -11,7 +11,7 @@ set expandtab "tab을 spacebar로 처리
 set nu
 set hlsearch "검색에 음영 표시
 
-set ts=3
+set ts=2
 set laststatus=2 "상태바
 set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
 set enc=utf-8
