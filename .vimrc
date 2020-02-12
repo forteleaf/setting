@@ -14,7 +14,7 @@ set hlsearch "검색에 음영 표시
 set ts=2
 set laststatus=2 "상태바
 set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
-set enc=utf-8
+set encoding=utf-8
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
