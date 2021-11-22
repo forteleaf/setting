@@ -1,9 +1,11 @@
 " Syntax Highlighting
 if has ("syntax")
-  syntax on
+    syntax on
 endif
 filetype off
 set helplang=ko
+set redrawtime=10000
+set list lcs=trail:·,tab:├─
 
 set autoindent
 set cindent
@@ -19,8 +21,10 @@ set tabstop=4
 set shiftwidth=4
 set laststatus=2 "상태바
 set statusline=\ %<%l:%v\ [%P]%=%a\ %h%m%r\ %F\
+set statusline=%<%f\ %h%m%r%{kite#statusline()}%=%-14.(%l,%c%V%)\ %P
+set laststatus=2  " always display the status line
 set enc=utf-8
-set fileencoding=utf8
+set fileencodings=utf8,euc-kr
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 let g:Powerline_symbols = 'fancy'
@@ -35,6 +39,11 @@ Plugin 'vim-airline/vim-airline' "StateBar
 Plugin 'airblade/vim-gitgutter' "git state with vim-airline
 Plugin 'othree/html5.vim' "html5
 Plugin 'pangloss/vim-javascript' "javascript
+Plugin 'mxw/vim-jsx'
+Plugin 'peitalin/vim-jsx-typescript'
+Plugin 'ap/vim-css-color'
+
+
 Plugin 'majutsushi/tagbar'
 
 "Coding
@@ -107,6 +116,7 @@ let g:multi_cursor_quit_key            = '<Esc>'
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+"set statusline+=%{FugitiveStatusline()}
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
