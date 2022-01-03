@@ -106,8 +106,8 @@ font:
   normal:
     #normalfamily: "Fira Code"
     # family: "Roboto Mono"
-    #family: D2Coding
-    family: Ubuntu Mono derivative Powerline
+    family: D2Coding
+    #family: Ubuntu Mono derivative Powerline
     #family: "Menlo"
     # family: "Droid Sans Mono"
     # Style can be specified to pick a specific face.
@@ -136,7 +136,7 @@ font:
     style: Italic
 
   # Point size of the font
-  size: 13.0
+  size: 14.0
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
