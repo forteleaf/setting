@@ -85,6 +85,12 @@ window:
   # Set this to `None` to use the default theme variant.
   #gtk_theme_variant: None
 
+  # Background opacity
+  #
+  # Window opacity as a floating point number from `0.0` to `1.0`.
+  # The value `0.0` is completely transparent and `1.0` is opaque.
+  opacity: 0.9
+
 scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
@@ -104,23 +110,23 @@ draw_bold_text_with_bright_colors: true
 font:
   # The normal (roman) font face to use.
   normal:
-    #normalfamily: "Fira Code"
+    #family: "Fira Code"
     # family: "Roboto Mono"
-    family: D2Coding
-    #family: Ubuntu Mono derivative Powerline
+    #family: D2Coding
+    family: Ubuntu Mono derivative Powerline
+    #family: Source Code Pro
     #family: "Menlo"
-    # family: "Droid Sans Mono"
     # Style can be specified to pick a specific face.
     style: Regular
 
   # The bold font face
   bold:
-    # family: "Roboto Mono"
     #family: "Fira Code"
+    # family: "Roboto Mono"
     #family: D2Coding
     #family: "Menlo"
-    # family: "Droid Sans Mono"
     family: Ubuntu Mono derivative Powerline
+    #family: Source Code Pro
     # Style can be specified to pick a specific face.
     style: Bold
 
@@ -128,10 +134,10 @@ font:
   italic:
     # family: "Roboto Mono"
     #family: "Fira Code"
-    # family: "Droid Sans Mono"
     #family: D2Coding
     #family: "Menlo"
     family: Ubuntu Mono derivative Powerline
+    #family: Source Code Pro
     # Style can be specified to pick a specific face.
     style: Italic
 
@@ -229,6 +235,12 @@ colors:
     magenta: '#6e4962'
     cyan:    '#5c8482'
     white:   '#828282'
+  # Transparent cell backgrounds
+  #
+  # Whether or not `window.opacity` applies to all cell backgrounds or only to
+  # the default background. When set to `true` all cells will be transparent
+  # regardless of their background color.
+  transparent_background_colors: true
     
 # Visual Bell
 #
@@ -257,13 +269,6 @@ bell:
   animation: EaseOutExpo
   duration: 0
   color: '0xffffff'
-
-
-# Background opacity
-#
-# Window opacity as a floating point number from `0.0` to `1.0`.
-# The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.90
 
 # Mouse bindings
 #
@@ -339,6 +344,8 @@ cursor:
   #
   # See `cursor.style` for available options.
   # vi_mode_style: None
+  # blinking: on
+  # blink_interval: 750
 
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.
@@ -373,7 +380,50 @@ live_config_reload: true
 #  args:
 #    - -u # force utf-8
 
-##
+# Regex hints
+#
+# Terminal hints can be used to find text in the visible part of the terminal
+# and pipe it to other applications.
+#hints:
+  # Keys used for the hint labels.
+  #alphabet: "jfkdls;ahgurieowpq"
+
+  # List with all available hints
+  #
+  # Each hint must have a `regex` and either an `action` or a `command` field.
+  # The fields `mouse`, `binding` and `post_processing` are optional.
+  #
+  # The fields `command`, `binding.key`, `binding.mods`, `binding.mode` and
+  # `mouse.mods` accept the same values as they do in the `key_bindings` section.
+  #
+  # The `mouse.enabled` field controls if the hint should be underlined while
+  # the mouse with all `mouse.mods` keys held or the vi mode cursor is above it.
+  #
+  # If the `post_processing` field is set to `true`, heuristics will be used to
+  # shorten the match if there are characters likely not to be part of the hint
+  # (e.g. a trailing `.`). This is most useful for URIs.
+  #
+  # Values for `action`:
+  #   - Copy
+  #       Copy the hint's text to the clipboard.
+  #   - Paste
+  #       Paste the hint's text to the terminal or search.
+  #   - Select
+  #       Select the hint's text.
+  #   - MoveViModeCursor
+  #       Move the vi mode cursor to the beginning of the hint.
+  #enabled:
+  # - regex: "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)\
+  #           [^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+  #   command: xdg-open
+  #   post_processing: true
+  #   mouse:
+  #     enabled: true
+  #     mods: None
+  #   binding:
+  #     key: U
+  #     mods: Control|Shift
+
 # Key bindings
 #
 # Each binding is defined as an object with some properties. Most of the
