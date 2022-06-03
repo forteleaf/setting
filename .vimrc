@@ -16,6 +16,14 @@ set hlsearch "검색에 음영 표시
 set ignorecase smartcase "검색시 대소문자 검색 (tab 포함)
 set cursorline "커서라인 강조
 
+" You might have to force true color when using regular vim inside tmux as the
+" colorscheme can appear to be grayscale with "termguicolors" option enabled.
+if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
+set termguicolors
+
 set background=dark
 set tabstop=4
 set shiftwidth=4
