@@ -9,6 +9,18 @@ export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 alias ls='ls -GFh'
 ```
+
+## tmux + alactirry
+
+true color설정
+
+화면 테스트
+
+```bash
+$ curl -s https://gist.githubusercontent.com/lifepillar/09a44b8cf0f9397465614e622979107f/raw/24-bit-color.sh >24-bit-color.sh
+$ bash 24-bit-color.sh
+```
+
 # vim-vundle 설치
 
 ```
