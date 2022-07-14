@@ -48,3 +48,8 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ### powerlevel9k 설치
 
     $ git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+    
+# key mapping
+
+- https://hidutil-generator.netlify.app/
+- karabiner
