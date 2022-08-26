@@ -53,3 +53,9 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 - https://hidutil-generator.netlify.app/
 - karabiner
+
+한글파일 깨짐
+
+```bash
+convmv -r -f utf8 -t utf-8 --nfc --notest ./
+```
