@@ -1,3 +1,5 @@
+# ~/.config/fish/config.fish
+
 kubectl completion fish | source
 alias g=git
 
