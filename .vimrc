@@ -2,7 +2,10 @@
 if has ("syntax")
     syntax on
 endif
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab autoindent
+
 filetype off
+
 set helplang=ko
 set redrawtime=10000
 set list lcs=trail:·,tab:├─
@@ -15,7 +18,6 @@ set nu
 set hlsearch "검색에 음영 표시
 set ignorecase smartcase "검색시 대소문자 검색 (tab 포함)
 set cursorline "커서라인 강조
-
 " You might have to force true color when using regular vim inside tmux as the
 " colorscheme can appear to be grayscale with "termguicolors" option enabled.
 if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
@@ -36,6 +38,8 @@ set fileencodings=utf8,euc-kr
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 let g:Powerline_symbols = 'fancy'
+
+
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
@@ -45,12 +49,12 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'vim-airline/vim-airline' "StateBar
 Plugin 'airblade/vim-gitgutter' "git state with vim-airline
-Plugin 'othree/html5.vim' "html5
+" Plugin 'othree/html5.vim' "html5
 Plugin 'pangloss/vim-javascript' "javascript
 Plugin 'mxw/vim-jsx'
 Plugin 'peitalin/vim-jsx-typescript'
 Plugin 'ap/vim-css-color'
-
+Plugin 'ekalinin/Dockerfile.vim' "Dockerfile
 
 Plugin 'majutsushi/tagbar'
 
@@ -80,6 +84,7 @@ nmap <F8> :TagbarToggle<CR>
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 let g:netrw_sort_by="time"
+let NERDTreeShowHidden=1
 let g:NERDTreeSortOrder = ['\/$', '*', '\.swp$',  '\.bak$', '\~$', '[[-timestamp]]']
 " 파일없이 vim만 틸 경우 자동으로 NERD Tree 실행.
 "autocmd StdinReadPre * let s:std_in=1
@@ -92,8 +97,40 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 "colorscheme molokai
 colorscheme gruvbox
 
-" Golang
+""""""""""""""""""""""""" Golang
 "let g:go_fmt_autosave = 0
+
+set autowrite
+
+" Go syntax highlighting
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_operators = 1
+
+" Auto formatting and importing
+let g:go_fmt_autosave = 1
+let g:go_fmt_command = "goimports"
+
+" Status line types/signatures
+let g:go_auto_type_info = 1
+
+" Run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+" Map keys for most used commands.
+" Ex: `\b` for building, `\r` for running and `\b` for running test.
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
 
 " Rust
 let g:rustfmt_autosave = 1
@@ -110,7 +147,6 @@ let g:rustfmt_autosave = 1
 
 "Multiple cursors
 let g:multi_cursor_use_default_mapping=0
-
 let g:multi_cursor_start_word_key      = '<C-n>'
 let g:multi_cursor_select_all_word_key = '<A-n>'
 let g:multi_cursor_start_key           = 'g<C-n>'
@@ -130,3 +166,5 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+set rtp+=/usr/local/opt/fzf
