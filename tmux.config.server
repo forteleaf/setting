@@ -28,3 +28,7 @@ set -g status-right-length 60
 #set -g status-right "#[fg=blue]#S #I:#P #[fg=green]%k:%M:%S (#(date -u | awk '{print $4}') KST)"
 set -g status-right "#[fg=blue]#S #I:#P #[fg=green]%k:%M:%S"
 
+# Shift arrow to switch windows
+bind -n C-S-Left  previous-window
+bind -n C-S-Right next-window
+
