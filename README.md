@@ -1,3 +1,8 @@
+# DEVICE
+
+## archlinux
+2023.1.1 archlinux 로 개발기기를 변경. Lenovo L15 gen1
+
 # alias
 
 alias ll="ls -la"
