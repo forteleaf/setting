@@ -3,6 +3,34 @@
 ## archlinux
 2023.1.1 archlinux 로 개발기기를 변경. Lenovo L15 gen1
 
+# linux swap ctrl - capslock
+
+```config
+! swap Ctrl and Alt keys
+
+! here's the default setting on special keys
+!  xmodmap -pke | grep -P '(Control|Super|Alt|Menu)'
+
+! keycode  37 = Control_L NoSymbol Control_L
+! keycode  64 = Alt_L Meta_L Alt_L Meta_L
+! keycode 105 = Control_R NoSymbol Control_R
+! keycode 108 = Alt_R Meta_R Alt_R Meta_R
+! keycode 133 = Super_L NoSymbol Super_L
+! keycode 134 = Super_R NoSymbol Super_R
+! keycode 135 = Menu NoSymbol Menu
+! keycode 147 = XF86MenuKB NoSymbol XF86MenuKB
+! keycode 204 = NoSymbol Alt_L NoSymbol Alt_L
+! keycode 206 = NoSymbol Super_L NoSymbol Super_L
+
+clear Control
+clear Lock
+keysym Control_L = Caps_Lock
+keysym Caps_Lock = Control_L
+add Lock = Caps_Lock
+add Control = Control_L
+
+```
+
 # alias
 
 alias ll="ls -la"
